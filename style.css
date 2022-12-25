@@ -32,10 +32,18 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
+.grid-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .grid {
+  aspect-ratio: 1 / 1;
+  width: min(75%, 75vh);
   display: grid;
-  grid-template-columns: repeat(16, 20px);
-  grid-template-rows: repeat(16, 20px);
+  gap: 1px;
 }
 
 .tile {
