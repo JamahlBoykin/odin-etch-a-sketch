@@ -32,3 +32,12 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(16, 20px);
+  grid-template-rows: repeat(16, 20px);
+}
+
+.tile {
+  background-color: black;
+}
