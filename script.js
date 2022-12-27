@@ -1,7 +1,38 @@
 const grid = document.querySelector('.grid');
-createGrid();
+const input = document.querySelector('.input-box');
+const dimensions = document.querySelector('.dimensions');
+const upArrow = document.querySelector('.up-button');
+const downArrow = document.querySelector('.down-button');
 
-function createGrid(gridSize = 16) {
+upArrow.addEventListener('click', () => {
+  if (input.value != 100) {
+    input.value++;
+    resize();
+  }
+});
+
+downArrow.addEventListener('click', () => {
+  if (input.value != 1) {
+    input.value--;
+    resize();
+  }
+});
+
+resize();
+input.addEventListener("input", resize);
+
+function resize() {
+  if (Number(input.value) < 1) {
+    input.value = 1;
+  } else if (Number(input.value) > 100) {
+    input.value = 100;
+  }
+  dimensions.textContent = "x " + input.value;
+  input.style.width = dimensions.offsetWidth - 5 + "px";
+  createGrid(Number(input.value));
+}
+
+function createGrid(gridSize) {
   resetGrid();
   setDimensions(gridSize);
   createTiles(gridSize ** 2);

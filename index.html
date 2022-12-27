@@ -12,6 +12,16 @@
   </head>
   
   <body>
+    <div class="size-container">
+      <button class="up-button"><i class="arrow up"></i></button>
+      <div class="inside-size-container">
+        <label for="size">Size</label>
+        <input id="txt" class="input-box" maxlength="3" spellcheck="false" value="16" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"></input>
+        <span class="dimensions"></span>
+      </div>
+      <button class="down-button"><i class="arrow down"></i></button>
+    </div>
+
     <div class="grid-container">
       <div class="grid"></div>
     </div>
