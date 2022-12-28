@@ -3,6 +3,7 @@ const input = document.querySelector('.input-box');
 const dimensions = document.querySelector('.dimensions');
 const upArrow = document.querySelector('.up-button');
 const downArrow = document.querySelector('.down-button');
+const gridlines = document.querySelector('input[name=gridlines]')
 
 upArrow.addEventListener('click', () => {
   if (input.value != 100) {
@@ -18,8 +19,17 @@ downArrow.addEventListener('click', () => {
   }
 });
 
-resize();
+gridlines.addEventListener('change', () => {
+  if (gridlines.checked) {
+    grid.style.gap = "1px";
+  } else {
+    grid.style.gap = "0px";
+  }
+});
+
 input.addEventListener("input", resize);
+
+resize();
 
 function resize() {
   if (Number(input.value) < 1) {
@@ -27,8 +37,8 @@ function resize() {
   } else if (Number(input.value) > 100) {
     input.value = 100;
   }
-  dimensions.textContent = "x " + input.value;
-  input.style.width = dimensions.offsetWidth - 5 + "px";
+  dimensions.textContent = input.value + " x";
+  input.style.width = dimensions.offsetWidth - 15 + "px";
   createGrid(Number(input.value));
 }
 
@@ -62,7 +72,7 @@ function addListeners() {
   const tiles = document.querySelectorAll('.tile');
   tiles.forEach((tile) => {
     tile.addEventListener('mouseenter', () => {
-      tile.style.backgroundColor = 'aqua';
+      tile.style.backgroundColor = 'white';
     });
   });
 }

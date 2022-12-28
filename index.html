@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
     
@@ -12,18 +13,36 @@
   </head>
   
   <body>
-    <div class="size-container">
-      <button class="up-button"><i class="arrow up"></i></button>
-      <div class="inside-size-container">
-        <label for="size">Size</label>
-        <input id="txt" class="input-box" maxlength="3" spellcheck="false" value="16" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"></input>
-        <span class="dimensions"></span>
+    <div class="header-container">
+      <h1>Etch-a-Sketch</h1>
+    </div>
+
+    <div class="controls-container">
+      <div class="controls-section">
+
+        <div class="size-container">
+          <button class="up-button"><i class="arrow up"></i></button>
+          <div class="inside-size-container">
+            <span class="dimensions">16 x</span>
+            <input id="txt" class="input-box" maxlength="3" spellcheck="false" value="16" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"></input>
+          </div>
+          <button class="down-button"><i class="arrow down"></i></button>
+        </div>
+
+        <div class="gridlines-container">
+          <label for="gridlines">Show gridlines?</label>
+          <input type="checkbox" name="gridlines" checked="checked">
+        </div>
+
       </div>
-      <button class="down-button"><i class="arrow down"></i></button>
     </div>
 
     <div class="grid-container">
       <div class="grid"></div>
     </div>
+
+    <footer class="footer-container">
+      <a href="https://github.com/JamahlBoykin"><img class="github" src="./images/github-mark-white.svg" alt="Link to the creator's GitHub profile."></a>
+    </footer>
   </body>
 </html>

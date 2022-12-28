@@ -25,13 +25,16 @@ a {
 
 html, body {
   height: 100%;
+  min-width: 342px;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: Helvetica, sans-serif;
+  font-family: "Silkscreen", Helvetica, sans-serif;
   background-color: #2b2b2b;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .grid-container {
@@ -42,13 +45,70 @@ body {
 
 .grid {
   aspect-ratio: 1 / 1;
-  width: min(75%, 75vh);
+  width: min(75vw, 70vh);
   display: grid;
   gap: 1px;
 }
 
+.header-container {
+  text-align: center;
+}
+
+.header-container > h1 {
+  font-size: 72px;
+  color: white;
+  background-color: #202020;
+  text-shadow: 4px 4px 0px black;
+  box-shadow: 0px 1px 5px 0px black;
+  padding-bottom: 10px;
+}
+
 .tile {
   background-color: black;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.controls-section {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-size: 20px;
+  gap: 15px;
+}
+
+.size-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.inside-size-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 131px;
+  gap: 7px;
+}
+
+.gridlines-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gridlines-container > input {
+  width: 20px;
+  height: 20px;
 }
 
 .input-box {
@@ -57,23 +117,28 @@ body {
   text-align: center;
   color: white;
   background-color: #3b3b3b;
-  height: 3ch;
   padding: 0;
+  max-width: 64px;
 }
 
-.size-container {
+.up-button,
+.down-button {
+  background: none;
+  border: none;
+  color: white;
   display: flex;
-  flex-direction: column;
-  height: 100px;
   justify-content: center;
   align-items: center;
+  height: 20px;
+  width: 50px;
 }
 
 .arrow {
-  border: solid black;
+  border: solid rgb(255, 255, 255);
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
+  margin-right: 10px;
 }
 
 .up {
@@ -84,4 +149,16 @@ body {
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.footer-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  padding: 16px;
+}
+
+.github {
+  height: 24px;
 }
