@@ -35,6 +35,11 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .grid-container {
@@ -45,7 +50,7 @@ body {
 
 .grid {
   aspect-ratio: 1 / 1;
-  width: min(75vw, 70vh);
+  width: min(63vw, 63vh);
   display: grid;
   gap: 1px;
 }
@@ -65,6 +70,12 @@ body {
 
 .tile {
   background-color: black;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  
 }
 
 .controls-container {
@@ -75,13 +86,13 @@ body {
 }
 
 .controls-section {
-  width: 75%;
+  width: 95%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
   font-size: 20px;
-  gap: 15px;
+  gap: 24px;
 }
 
 .size-container {
@@ -96,14 +107,46 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 131px;
+  /* width: 133px; */
   gap: 7px;
+}
+
+.rainbow {
+  color: white;
+  background: #202020;
+  border: none;
+}
+
+.rainbow > p {
+  margin-bottom: 2px;
+}
+
+.rainbow.active {
+  text-shadow: 2px 1px 0px black;
+  background: linear-gradient(
+    90deg,
+  rgba(255, 0, 0, 1) 0%,
+  rgba(255, 154, 0, 1) 10%,
+  rgba(208, 222, 33, 1) 20%,
+  rgba(79, 220, 74, 1) 30%,
+  rgba(63, 218, 216, 1) 40%,
+  rgba(47, 201, 226, 1) 50%,
+  rgba(28, 127, 238, 1) 60%,
+  rgba(95, 21, 242, 1) 70%,
+  rgba(186, 12, 248, 1) 80%,
+  rgba(251, 7, 217, 1) 90%,
+  rgba(255, 0, 0, 1) 100%
+  );
 }
 
 .gridlines-container {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.gridlines-container > label {
+  margin-bottom: 2px;
 }
 
 .gridlines-container > input {

@@ -3,6 +3,7 @@ const input = document.querySelector('.input-box');
 const dimensions = document.querySelector('.dimensions');
 const upArrow = document.querySelector('.up-button');
 const downArrow = document.querySelector('.down-button');
+const rainbow = document.querySelector('.rainbow');
 const gridlines = document.querySelector('input[name=gridlines]')
 
 upArrow.addEventListener('click', () => {
@@ -24,6 +25,14 @@ gridlines.addEventListener('change', () => {
     grid.style.gap = "1px";
   } else {
     grid.style.gap = "0px";
+  }
+});
+
+rainbow.addEventListener('click', () => {
+  if (rainbow.classList.contains('active')) {
+    rainbow.classList.remove('active');
+  } else {
+    rainbow.classList.add('active');
   }
 });
 
@@ -68,11 +77,30 @@ function createTiles(tileCount) {
   }
 }
 
+function getRandomColor() {
+  return "#" + Math.floor(Math.random()*16777215).toString(16);
+}
+
 function addListeners() {
   const tiles = document.querySelectorAll('.tile');
   tiles.forEach((tile) => {
-    tile.addEventListener('mouseenter', () => {
-      tile.style.backgroundColor = 'white';
+    tile.addEventListener('mousedown', () => {
+      if (rainbow.classList.contains('active')) {
+        console.log('test');
+        tile.style.backgroundColor = getRandomColor();
+      } else {
+        tile.style.backgroundColor = 'white';
+      }
+    });
+    tile.addEventListener('mouseenter', (e) => {
+      if (e.buttons === 1) {
+        if (rainbow.classList.contains('active')) {
+          console.log('test');
+          tile.style.backgroundColor = getRandomColor();
+        } else {
+          tile.style.backgroundColor = 'white';
+        }
+      }
     });
   });
 }
